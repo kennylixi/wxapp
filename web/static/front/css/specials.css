@@ -1,0 +1,145 @@
+.subject{
+    width: 250px;
+    height: 395px;
+    background-color: #fff;
+    float: left;
+    margin-right: 9px;
+    margin-bottom: 26px;
+}
+.subjectbox .subject:nth-child(4n){
+    margin-right: 0;
+    width: 252px;
+}
+.sub-img{
+    overflow: hidden;
+    display: block;
+}
+.subject .data-new{
+    width: 164px;
+}
+.subject-tip{
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #E5E5E5;
+    padding: 0 14px;
+}
+.subject .lite-new{
+    padding: 0;
+}
+.subject .lite-new >a{
+    border-bottom: 1px solid #F4F4F4;
+    padding: 10px;
+}
+.subject .lite-new >a:hover{
+   background-color: #F4F4F4;
+}
+.goBtn a{
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    color: #808080;
+    text-align: center;
+}
+.goBtn a:hover{
+    color: #ea6f5a;
+    text-decoration: none;
+}
+.img-new {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 4px;
+    float: left;
+}
+.data-new {
+    width: 195px;
+    font-size: 16px;
+    float: left;
+    margin-left: 15px;
+}
+.lite-new p {
+    color: #808080;
+    font-size: 14px;
+    margin-left: 15px;
+    margin-top: 6px;
+    float: left;
+}
+.clear:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    overflow: hidden;
+}
+
+.lite-new >a, .art-top >a {
+    padding: 12px 10px;
+    display: block;
+}
+
+.lite-new .tags {
+    height: 24px;
+    overflow: hidden;
+    white-space: nowrap;
+    float: left;
+    margin-top: 3px;
+    margin-left: 13px;
+    width: 160px;
+}
+
+.lite-new .tags span {
+    float: left;
+    height: 24px;
+    line-height: 24px;
+    margin-right: 5px;
+    padding: 0 10px;
+    border-radius: 2px;
+    background: #f2f2f2;
+    color: #888;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.pagination {
+    border-right:none;
+    border-bottom:none;
+    font-size:0;
+    height:30px;
+    margin-top:30px;
+    text-align:center
+}
+.pagination span {
+    padding:0 6px;
+    font-size:12px;
+    color:#666
+}
+.pagination .pagination-curr,.pagination a {
+    margin:0 4px;
+    padding:7px 12px;
+    border:1px solid #e5e5e5;
+    font-size:12px;
+    color:#666;
+    background:#f5f5f5
+}
+.pagination .pagination-curr,.pagination a:hover {
+    border-color:#ea6f5a;
+    background:#ea6f5a;
+    color:#fff;
+    text-decoration:none
+}
+
+/**
+ * 适应手机屏幕
+ */
+@media screen and ( max-width : 767px) {
+    .subject .data-new {
+        width: 300px;
+    }
+    .lite-new .tags {
+        width: 300px;
+    }
+}

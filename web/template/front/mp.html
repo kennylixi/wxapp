@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>{{.mp.Title}} - {{.mp.Title}}小程序 - {{.mp.Title}}微信二维码 | 139小程序商店(139ud.com)</title>
+    <meta name="keywords" content="{{.mp.Title}},{{.mp.Title}}公众号,{{.mp.Title}}微信二维码" />
+    <meta name="description" content="{{.mp.Content}}" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+    <link rel="dns-prefetch" href="http://static.139ud.com/" />
+    <link rel="dns-prefetch" href="http://img.139ud.com/" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{StaticUrl}}/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="{{StaticUrl}}/favicon.ico" />
+    <link rel="stylesheet" href="{{StaticUrl}}/front/css/mobile.css" media="screen and (max-width:768px)" />
+    <link rel="stylesheet" href="{{StaticUrl}}/front/css/index.css" />
+    <link rel="stylesheet" href="{{StaticUrl}}/front/css/detail.css" />
+</head>
+<body>
+<div class="wrap">
+{{template "front_header" .}}
+    <div class="body detail clearfix">
+        <div class="breadcrumb">
+            <a href="{{AppUrl}}">小程序商店</a>
+            <span class="icon-right"></span>
+            <a href="{{AppUrl}}/{{.pcate.Short}}/{{.cate.Short}}">{{.cate.Title}}</a>
+            <span class="icon-right"></span>
+            <strong class="active">{{.mp.Title}}</strong>
+        </div>
+        <div class="main">
+            <div class="intro clearfix">
+                <img class="detailavatar" src="{{.mp.PicCover}}" width="90" height="90" alt="{{.mp.Title}}公众号" />
+                <div class="detailname">
+                    <h1>{{.mp.Title}}</h1>
+                </div>
+                <div class="tags">
+                    {{$tags := string2Arr .mp.Keywords}}
+                    {{range $tags}}
+                        <a rel="nofollow" href="{{AppUrl}}/search?t=mp&q={{.}}">{{.}}</a>
+                    {{end}}
+                </div>
+            </div>
+            <div>
+                <h2 class="detailtitle">『{{.mp.Title}}』公众号信息</h2>
+                <ul class="info">
+                    <li><span>作者：<strong>{{.mp.Title}}</strong></span></li>
+                    <li><span>分类：<strong><a href="{{AppUrl}}/mp/{{.cate.Short}}">{{.cate.Title}}</a></strong></span><span>发布时间：<strong>{{DateFormat .mp.CreatedAt}}</strong></span></li>
+                </ul>
+            </div>
+            <div class="qrcode">
+                <h2 class="detailtitle">『{{.mp.Title}}』公众号使用指南</h2>
+                <img src="{{.mp.PicQrcode}}" width="180" alt="{{.mp.Title}}二维码" style="min-height:180px" />
+                <p>微信扫描关注</p>
+            </div>
+            <div>
+                <h2 class="detailtitle">『{{.mp.Title}}』公众号简介</h2>
+                <div class="description marked">
+                    <p>{{.mp.Content}}</p>
+                </div>
+                <h2 class="detailtitle">『{{.mp.Title}}』公众号使用方法</h2>
+                <div class="description marked">
+                    <ol>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;1.使用微信扫描页面上方二维码关注<a href="{{AppUrl}}/mp/detail/{{.mp.Id}}">{{.mp.Title}}公众号</a></li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;2.在微信中搜索“<em>{{.mp.Title}}</em>”即可关注公众号</li>
+                    </ol>
+                </div>
+            </div>
+            <div>
+                <h2 class="detailtitle">看了『{{.mp.Title}}』的人还看了</h2>
+                <ul class="list related renderlist clearfix">
+                    {{range $index, $a := .as}}
+                    <li class="item">
+                        <a href="{{AppUrl}}/mp/detail/{{.Id}}" title="{{.Title}}">
+                            <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{.PicCover}}" width="70" height="70" alt="{{.Title}}公众号">
+                            <span>{{.Title}}</span>
+                        </a>
+                    </li>
+                    {{end}}
+                </ul>
+            </div>
+        </div>
+        <div class="aside">
+            <div class="aside-rank">
+                <h2>热门推荐</h2>
+                <ul class="aside-rank-list">
+                    {{range .ar}}
+                    <li class="item">
+                        <a href="{{AppUrl}}/mp/detail/{{.Id}}">
+                            <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{.PicCover}}" width="64" height="64" alt="{{.Title}}公众号" />
+                            <em>{{.Title}}</em>
+                            <span>{{Replace .Keywords ","}}</span>
+                        </a>
+                    </li>
+                    {{end}}
+                </ul>
+            </div>
+            <div class="aside-rank">
+                <h2>最新推荐</h2>
+                <ul class="aside-rank-list">
+                {{range $index, $a := .an}}
+                    <li class="item">
+                        <a href="{{AppUrl}}/mp/detail/{{$a.Id}}">
+                            <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{$a.PicCover}}" width="64" height="64" alt="{{$a.Title}}公众号" />
+                            <em>{{$a.Title}}</em>
+                            <span>{{Replace $a.Keywords ","}}</span>
+                        </a>
+                    </li>
+                {{end}}
+                </ul>
+            </div>
+        </div>
+    </div>
+{{template "front_footer" .}}
+</div>
+<script src="{{StaticUrl}}/front/js/common.js"></script>
+{{template "front_script" .}}
+</body>
+</html>

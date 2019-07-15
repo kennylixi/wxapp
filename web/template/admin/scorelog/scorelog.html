@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<meta charset="utf-8">
+{{template "header" .}}
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox">
+					<div class="ibox-body">
+						<div class="fixed-table-toolbar">
+                            <div class="columns pull-left col-md-2 nopadding">
+                                <input id="searchName" type="text" class="form-control"
+                                       placeholder="用户账号">
+                            </div>
+							<div class="columns pull-left">
+								<button class="btn btn-success" onclick="reLoad()">查询</button>
+							</div>
+						</div>
+						<table id="exampleTable" data-mobile-responsive="true">
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{template "footer" .}}
+	<script type="text/javascript" src="{{StaticUrl}}/js/appjs/scorelog/scorelog.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>微信小程序测评 | 139小程序商店(139ud.com)</title>
+    <meta name="keywords" content="微信小程序最新测评,小程序测评,小程序测评内容,小程序怎么用,小程序在哪里" />
+    <meta name="description" content="139小程序商店(139ud.com)测评中心为您提供最新、最好玩的微信小程序测评，找最新、最好玩的苹果(iPhone)、安卓(android)、WP小程序，就来139小程序(139ud.com)测评中心。" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+    <link rel="dns-prefetch" href="http://static.139ud.com/" />
+    <link rel="dns-prefetch" href="http://img.139ud.com/" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{StaticUrl}}/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="{{StaticUrl}}/favicon.ico" />
+    <link rel="stylesheet" href="{{StaticUrl}}/front/css/mobile.css" media="screen and (max-width:768px)" />
+    <link rel="stylesheet" href="{{StaticUrl}}/front/css/index.css" />
+    <link rel="stylesheet" href="{{StaticUrl}}/front/css/evaluates.css" />
+</head>
+<body>
+<div class="wrap">
+{{template "front_header" .}}
+    <div class="body clearfix">
+        <div class="breadcrumb">
+            <a href="{{AppUrl}}">小程序商店</a>
+            <span class="icon-right"></span>
+            <strong class="active">评测</strong>
+        </div>
+        <div class="main">
+            {{range .evaluates}}
+            <div class="imgScale">
+                <a href="{{AppUrl}}/evaluate/{{.Id}}" class="title" target="_blank"><h2>{{.Title}}</h2></a>
+                <div class="data-detail clearfix">
+                    <p class="fl time-art"><label></label>{{DateFormat .CreatedAt}}</p>
+                    <p class="view-count fl"><label></label>{{.Browse}}</p>
+                    <p class="label-art fr">
+                        <label class="lableIcon"></label>
+                        {{ $Keywords := string2Arr .Keywords}}
+                        {{range $Keywords}}
+                            <a rel="nofollow" href="{{AppUrl}}/search?t=eva&q={{.}}">{{.}}</a>
+                        {{end}}
+                    </p>
+                </div>
+                <a href="{{AppUrl}}/evaluate/{{.Id}}" class="imgs content" target="_blank">
+                    <span class="num">{{.Score}}<label>分</label></span>
+                    <img src="{{.PicCover}}" alt="{{.Title}}" style="width: 100%;" class="scale_return">
+                </a>
+                <a href="{{AppUrl}}/evaluate/{{.Id}}" class="details" target="_blank">{{.Desc}}</a>
+            </div>
+            {{end}}
+            <div class="pagination">
+            {{if gt .paginator.totalpages 1}}
+
+                {{if ne .paginator.currpage .paginator.firstpage }}
+                    <a href="{{AppUrl}}/evaluates?page={{.paginator.firstpage}}" class="pagination-prev">上一页</a>
+                {{end}}
+                {{range $index,$page := .paginator.pages}}
+                    {{if eq $.paginator.currpage $page }}
+                        <span class="pagination-curr">{{$page}}</span>
+                    {{else}}
+                        <a href="{{AppUrl}}/specials?page={{$page}}">{{$page}}</a>
+                    {{end}}
+                {{end}}
+                {{if ne .paginator.currpage .paginator.lastpage }}
+                    <a href="{{AppUrl}}/evaluates?page={{.paginator.lastpage}}" class="pagination-next">下一页</a>
+                {{end}}
+
+            {{end}}
+            </div>
+        </div>
+        <div class="aside">
+            <div class="aside-rank">
+                <h2>热门评测</h2>
+                <ul class="aside-evaluate-list">
+                    {{range $index, $a := .eh}}
+                    <a href="{{AppUrl}}/evaluate/{{$a.Id}}" target="_blank">
+                        <img onload="setImgWH(this)" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{$a.PicCover}}" alt="{{$a.Title}}" style="height: 100%;">
+                        <p>
+                            <span>{{$a.Title}}</span>
+                        </p>
+                    </a>
+                    {{end}}
+                </ul>
+            </div>
+            <div class="aside-rank">
+                <h2>最新推荐</h2>
+                <ul class="aside-rank-list">
+                {{range $index, $a := .na}}
+                    <li class="item">
+                        <a href="{{AppUrl}}/detail/{{$a.Id}}">
+                            <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{$a.PicCover}}" width="64" height="64" alt="{{$a.Title}}小程序" />
+                            <em>{{$a.Title}}</em>
+                            <span>{{Replace $a.Keywords ","}}</span>
+                        </a>
+                    </li>
+                {{end}}
+                </ul>
+            </div>
+        </div>
+    </div>
+{{template "front_footer" .}}
+</div>
+<script src="{{StaticUrl}}/front/js/common.js"></script>
+{{template "front_script" .}}
+<script>
+    //处理图片的宽高
+    function setImgWH(obj) {
+        if(obj.width > obj.height) {
+            $(obj).css('height', '100%');
+        } else {
+            $(obj).css('width', '100%');
+        }
+    }
+</script>
+</body>
+</html>

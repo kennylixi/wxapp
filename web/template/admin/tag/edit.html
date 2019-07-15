@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+{{template "header" .}}
+<body class="gray-bg">
+	<div class="wrapper wrapper-content animated fadeInRight">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox-content">
+					<form class="form-horizontal m-t" id="signupForm">
+                        <input id="Id" name="Id" type="hidden" value="{{.tag.Id}}">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">标签名称：</label>
+                            <div class="col-sm-8">
+                                <input id="Name" name="Name" class="form-control" type="text" value="{{.tag.Name}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">排序：</label>
+                            <div class="col-sm-8">
+                                <input id="Sort" name="Sort" class="form-control" value="{{.tag.Sort}}"
+                                       type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">状态:</label>
+                            <div class="col-sm-8">
+                                <label class="radio-inline"> <input
+								{{if eq .tag.Hot 1}}checked{{end}} type="radio" name="Hot" value="1" />
+                                    普通
+                                </label> <label class="radio-inline"> <input
+								{{if eq .tag.Hot 2}}checked{{end}} type="radio" name="Hot" value="2" />
+                                	热门
+								</label><label class="radio-inline"> <input
+								{{if eq .tag.Hot 3}}checked{{end}} type="radio" name="Hot" value="3" />
+									推荐
+								</label>
+                            </div>
+                        </div>
+						<div class="form-group">
+							<div class="col-sm-8 col-sm-offset-3">
+								<button type="submit" class="btn btn-primary">提交</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{template "footer" .}}
+	<script type="text/javascript" src="{{StaticUrl}}/js/appjs/tag/edit.js">
+	</script>
+</body>
+</html>

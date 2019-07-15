@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<meta charset="utf-8">
+{{template "header" .}}
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox">
+					<div class="ibox-body">
+						<div class="fixed-table-toolbar">
+							<div class="columns pull-left">
+								<button type="button"
+									class="btn  btn-primary" onclick="add()">
+									<i class="fa fa-plus hidden" aria-hidden="true"></i>添加
+								</button>
+                                <button type="button"
+                                        class="btn  btn-danger" onclick="batchRemove()">
+                                    <i class="fa fa-trash hidden" aria-hidden="true"></i>删除
+                                </button>
+							</div>
+							<div class="columns pull-right">
+								<button class="btn btn-success" onclick="reLoad()">查询</button>
+							</div>
+
+							<div class="columns pull-right col-md-2 nopadding">
+								<input id="searchName" type="text" class="form-control"
+									placeholder="ID">
+							</div>
+                            <div class="columns pull-right col-md-2 nopadding">
+                                <select id="IsCost" data-placeholder="是否付费" class="form-control chosen-select"
+                                        tabindex="2" style="width: 100%">
+                                    <option value="0">是否付费</option>
+                                    <option value="1">否</option>
+                                    <option value="2">是</option>
+                                </select>
+                            </div>
+                            <div class="columns pull-right col-md-2 nopadding">
+                                <select id="Status" data-placeholder="选择状态" class="form-control chosen-select"
+                                        tabindex="2" style="width: 100%">
+                                    <option value="0">选择状态</option>
+                                    <option value="1">未上架</option>
+                                    <option value="2">已上架</option>
+                                    <option value="3">已下架</option>
+                                </select>
+                            </div>
+                            <div class="columns pull-right col-md-2 nopadding">
+                                <input id="Cname" name="Cname" class="form-control" type="text"
+                                       style="cursor: pointer;" onclick="openCategory()"
+                                       readonly="readonly" placeholder="所属类目">
+							</div>
+                            <div class="columns pull-right col-md-2 nopadding">
+                                <select id="Type" data-placeholder="选择类型" class="form-control chosen-select"
+                                        tabindex="2" style="width: 100%">
+                                    <option value="0">选择类别</option>
+                                    <option value="1">首页推荐</option>
+                                    <option value="2">首页分类推荐</option>
+                                </select>
+                            </div>
+						</div>
+						<table id="exampleTable" data-mobile-responsive="true">
+						</table>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	{{template "footer" .}}
+	<script type="text/javascript" src="{{StaticUrl}}/js/appjs/recommend/recommend.js"></script>
+</body>
+</html>

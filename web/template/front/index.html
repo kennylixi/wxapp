@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>139小程序商店-微信小程序推荐-微信小游戏-小程序商店-微信小程序发布平台 | 139小程序商店(139ud.com)</title>
+    <meta name="keywords" content="微信小程序,小程序,微信小游戏,小游戏,小程序商店,小程序大全,小程序平台" />
+    <meta name="description" content="139小程序商店收录最新、最全、最热门、最实用的微信小程序和微信小游戏，是国内首家集小程序资讯、小程序游戏、小程序分发、小程序推广为一体的综合性小程序门户网站。" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+    <link rel="dns-prefetch" href="http://static.139ud.com/" />
+    <link rel="dns-prefetch" href="http://img.139ud.com/" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{StaticUrl}}/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="{{StaticUrl}}/favicon.ico" />
+    <link rel="stylesheet" href="{{StaticUrl}}/front/css/mobile.css" media="screen and (max-width:768px)" />
+    <link rel="stylesheet" href="{{StaticUrl}}/front/css/index.css" />
+</head>
+<body>
+<div class="wrap">
+{{template "front_header" .}}
+    <div class="body">
+        <div class="slide-wrap clearfix">
+            <div class="slide">
+                <ul id="slider1">
+                    <li><a target="_blank" rel="nofollow" href="#" title="盈客通小程序开发平台"><img width="720" src="{{StaticUrl}}/front/img/imgs/1.jpg" alt="盈客通小程序开发平台" /></a></li>
+                    <li><a target="_blank" rel="nofollow" href="#" title="序多多微信小程序生成工具"><img width="720" src="{{StaticUrl}}/front/img/imgs/2.jpg" alt="序多多微信小程序生成工具" /></a></li>
+                    <li><a target="_blank" rel="nofollow" href="#" title="小未程序一键生成平台"><img width="720" src="{{StaticUrl}}/front/img/imgs/3.jpg" alt="小未程序一键生成平台" /></a></li>
+                </ul>
+            </div>
+            <div class="small-banner">
+                <a target="_blank" rel="nofollow" href="{{AppUrl}}/special/5" title="你的钱去哪里了？">
+                    <img width="300" src="http://img.139ud.com/FpU9CyWIwxE_SD6JBvYVUGoQEx3-" alt="你的钱去哪里了？">
+                </a>
+                <a target="_blank" rel="nofollow" href="{{AppUrl}}/special/11" title="该去哪儿找片儿看？">
+                    <img width="300" src="http://img.139ud.com/Fn0vXzJK3m6FNkkv_XqJCMQp-YqD" alt="该去哪儿找片儿看？">
+                </a>
+            </div>
+        </div>
+        <div class="module">
+            <h2>热门推荐小程序</h2>
+            <ul class="list renderlist clearfix">
+            {{range .ar}}
+                <li class="item">
+                    <a target="_blank" href="{{AppUrl}}/app/detail/{{.Id}}" class="app" >
+                        <img class="lazyload" data-src="{{.PicCover}}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="90" height="90" alt="{{.Title}}" /><span>{{.Title}}</span>
+                    </a>
+                </li>
+            {{end}}
+            </ul>
+        </div>
+        <div class="module">
+            <h2>最新发布小程序</h2>
+            <ul class="list renderlist recommend clearfix">
+            {{range .an}}
+                <li class="item">
+                    <a target="_blank" href="{{AppUrl}}/app/detail/{{.Id}}" class="app" >
+                        <img class="lazyload" data-src="{{.PicCover}}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="90" height="90" alt="{{.Title}}" /><span>{{.Title}}</span>
+                    </a>
+                </li>
+            {{end}}
+            </ul>
+        </div>
+        <div class="module">
+            <div class="special renderlist clearfix">
+            {{range .randSpecial}}
+                <a target="_blank" href="{{AppUrl}}/special/{{.Id}}" title="{{.Title}}">
+                    <img width="250" height="90" class="lazyload" data-src="{{.Pic}}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{.Title}}">
+                </a>
+            {{end}}
+            </div>
+        </div>
+        {{range .ca}}
+        {{$len := len .Article}}
+        {{if gt $len 0}}
+        <div class="module">
+            <h2>{{.Title}}</h2>
+            <ul class="list renderlist recommend clearfix">
+            {{range .Article}}
+                <li class="item">
+                    <a target="_blank" href="{{AppUrl}}/app/detail/{{.Id}}" class="app" >
+                        <img class="lazyload" data-src="{{.PicCover}}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="90" height="90" alt="{{.Title}}" /><span>{{.Title}}</span>
+                    </a>
+                </li>
+            {{end}}
+            </ul>
+        </div>
+        {{end}}
+        {{end}}
+        {{template "front_links" .}}
+    </div>
+    {{template "front_footer" .}}
+</div>
+
+<script src="{{StaticUrl}}/front/js/common.js"></script>
+<script>
+    $(function() {
+        $('.slide').unslider({
+            autoplay: true,
+            delay: 3000,
+            arrows: {
+                prev: '<a class="unslider-arrow prev icon-left"></a>',
+                next: '<a class="unslider-arrow next icon-right"></a>'
+            }
+        });
+    });
+</script>
+{{template "front_script" .}}
+</body>
+</html>

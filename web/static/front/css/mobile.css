@@ -1,0 +1,415 @@
+::-webkit-scrollbar {
+	display:none
+}
+:focus {
+	outline:0 none
+}
+body {
+	overflow-x:hidden;
+	width:100%;
+	-webkit-tap-highlight-color:transparent
+}
+.header-ad {
+	display:none
+}
+.wrap .header .inner {
+	width:auto
+}
+.header .logo-wrap {
+	height: 40px;
+	padding: 10px
+}
+
+.header .logo {
+	position: absolute;
+	top: 10px;
+	left: 50%;
+	width: 160px;
+	height: 40px;
+	margin-left: -80px;
+}
+
+.header .logo a {
+	width: 160px;
+	height: 40px
+}
+
+.header .header-nav-btn {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	display: block;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background-color: #fff;
+	color: #ea6f5a;
+	font-size: 24px
+}
+
+.header .header-nav {
+	box-sizing: border-box;
+	display: none;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	position: absolute;
+	top: 61px;
+	left: 0;
+	width: 100%;
+	margin: 0;
+	padding: 10px 20px;
+	background-color: #fff;
+	box-shadow: 0 2px 5px rgba(0,0,0,.2)
+}
+
+.header .header-nav a {
+	margin: 0
+}
+
+.header .header-search .query {
+	display: none
+}
+
+.header .header-search .submit {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 40px;
+	height: 40px;
+	margin: 0;
+	padding: 0;
+	line-height: 40px;
+	text-align: center;
+	background-color: transparent;
+	color: transparent;
+	font-size: 0
+}
+
+.header .header-search .submit:after {
+	content: "\e651";
+	color: #ea6f5a;
+	font-family: iconfont!important;
+	font-size: 26px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale
+}
+.wrap .body {
+	box-sizing:border-box;
+	width:100%;
+	padding-top:60px;
+	padding-bottom:0
+}
+.wrap .slide-wrap {
+	margin: 15px 0
+}
+
+.wrap .unslider {
+	float: none
+}
+
+.wrap .slide {
+	overflow: hidden;
+	width: auto;
+	height: auto;
+	white-space: nowrap
+}
+
+.wrap .slide li {
+	float: none;
+	display: inline-block;
+	text-align: center
+}
+
+.wrap .unslider .unslider-arrow {
+	display: block
+}
+
+.wrap .small-banner {
+	float: none;
+	width: 100%;
+	margin-top: -5px;
+	text-align: center
+}
+
+.wrap .small-banner a {
+	float: left;
+	width: 49%;
+	padding-right: 1%
+}
+
+.wrap .small-banner a:last-child {
+	padding-right: 0;
+	padding-left: 1%
+}
+.wrap .module {
+	overflow:hidden;
+	margin-top:15px
+}
+.wrap .module h2 {
+	margin-bottom:15px;
+	padding:0 10px
+}
+.wrap .list {
+	white-space:nowrap;
+	margin-right:0;
+	padding:0;
+	background-color:transparent
+}
+.wrap .list .item {
+	float:left;
+	margin:0 0 14px 0;
+	width:25%
+}
+.module .item a {
+	width:64px;
+	margin:0 auto;
+	padding:0
+}
+.wrap .item a:hover {
+	border-color:transparent
+}
+.wrap .item a:hover span {
+	background-color:transparent;
+	color:#333
+}
+.module .item img {
+	width:64px;
+	height:64px
+}
+.wrap .special {
+	overflow-x:scroll;
+	white-space:nowrap
+}
+.wrap .special a {
+	float:none;
+	display:inline-block
+}
+.wrap .module:last-child {
+	display:none
+}
+.wrap .footer {
+	position:static;
+	height:30px;
+	margin-top:20px;
+	line-height:30px
+}
+.wrap .footer .inner {
+	width:auto
+}
+.wrap .footer .sponsor,.wrap .footer ul {
+	display:none
+}
+.wrap .fixed-btn {
+	display:none
+}
+.wrap .news {
+	display:none
+}
+.wrap .cate-title {
+	padding:0 10px
+}
+.wrap .sub-nav {
+	margin: 0px 10px 16px;
+	line-height: 24px
+}
+
+.wrap .sub-nav a {
+	padding: 0 5px
+}
+.wrap .cate-list {
+	padding:0 10px;
+	margin-top:0;
+	margin-right:0;
+	margin-bottom:0
+}
+.cate-list .item {
+	position:relative;
+	float:none;
+	width:auto;
+	height:auto;
+	margin-right:0
+}
+.cate-list .item .avatar {
+	padding-right:22px
+}
+.cate-list .item .avatar:after {
+	position:absolute;
+	top:50%;
+	right:20px;
+	content:"详情";
+	width:50px;
+	height:24px;
+	line-height:24px;
+	margin-top:-14px;
+	border:1px solid #e5e5e5;
+	text-align:center;
+	color:#888;
+	background-color:#fff;
+	font-size:12px
+}
+.cate-list .item a {
+	width:auto
+}
+.cate-list .item span,.cate-list .item strong {
+	overflow:auto;
+	margin-right:64px
+}
+.wrap .cate-ask {
+	margin:0 10px
+}
+.wrap .pagination {
+	padding-bottom:0
+}
+.pagination .pagination-next,.pagination .pagination-prev {
+	display:none
+}
+.wrap .breadcrumb {
+	padding:0 10px
+}
+.wrap .main {
+	position:relative;
+	box-sizing:border-box;
+	width:100%;
+	padding:10px 10px 0
+}
+.wrap .aside {
+	display:none
+}
+.wrap .name .edit {
+	display:none
+}
+.wrap .intro {
+	position:static
+}
+.wrap .info span {
+	min-width:0;
+	width:45%
+}
+.wrap .qrcode {
+	position:static
+}
+.wrap .qrcode .title {
+	display:block
+}
+.wrap .qrcode p {
+	font-size:0
+}
+.wrap .qrcode p:after {
+	font-size:13px;
+	content:"长按识别二维码，进入小程序"
+}
+.wrap .screenshot {
+	overflow-x:auto
+}
+.wrap .screenshot .next,.wrap .screenshot .prev {
+	display:none!important
+}
+.wrap .screenshot-list li:last-child {
+	margin-right:0
+}
+.wrap .adsbygoogle {
+	display:none
+}
+.wrap .comment {
+	width:auto
+}
+.wrap .intro {
+	margin-bottom:15px;
+	padding:0
+}
+.wrap .cover {
+	float:none;
+	width:100%;
+	height:auto
+}
+.wrap .info {
+	margin:0;
+	padding:0 10px 10px
+}
+.wrap .content {
+	height:auto;
+	min-height:auto;
+	margin-bottom:0
+}
+.wrap .cate-list {
+	margin-top:0
+}
+.wrap .special-ad {
+	margin:20px 0
+}
+.wrap .more-special {
+	overflow:auto;
+	white-space:nowrap;
+	margin:0 10px
+}
+.wrap .more-special a {
+	float:none;
+	display:inline-block
+}
+.wrap .more-special a:last-child {
+	margin-right:0
+}
+.wrap .tags-list {
+	margin:0 10px 10px
+}
+.wrap .search-page {
+	min-height:calc(100vh - 100px)
+}
+.wrap .search {
+	width:auto;
+	margin:20px 10px;
+	text-align:center
+}
+.wrap .search-tips {
+	margin-bottom:20px;
+	padding-bottom:0
+}
+.wrap .search .query {
+	float:none;
+	width:200px;
+	width:calc(100% - 100px)
+}
+.wrap .search .submit {
+	float:none;
+	margin-left:5px
+}
+@media screen and (max-width:413px) {
+	.detail .info span {
+		display:block
+	}
+}
+
+.wrap .specails-list {
+	padding: 0;
+}
+
+.specails-list .item {
+	position: relative;
+	float: none;
+	width: auto;
+	height: auto;
+	margin-right: 0
+}
+
+.specails-list .subject {
+	-webkit-box-shadow: 0px 0px 4px #d4d3d3;
+	box-shadow: 0px 0px 4px #d4d3d3;
+	margin-bottom: 26px;
+	position: relative;
+	float: none;
+	width: auto;
+	height: auto;
+	margin-right: 0;
+}
+.specails-list .item a {
+	width: auto;
+}
+
+.wrap .cate-list .tags {
+	width: 160px;
+}
+.wrap .cate-list .title {
+	width: 160px;
+}

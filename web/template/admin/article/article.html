@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<meta charset="utf-8">
+{{template "header" .}}
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-3">
+				<div class="ibox ibox-body">
+					<div class="ibox-title">
+						<h5>选择类目</h5>
+					</div>
+					<div class="ibox-content">
+						<div id="jstree"></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-8">
+				<div class="ibox">
+					<div class="ibox-body">
+						<div class="fixed-table-toolbar">
+							<div class="columns pull-left">
+								<button type="button"
+									class="btn  btn-danger" onclick="batchRemove()">
+									<i class="fa fa-trash hidden" aria-hidden="true"></i>删除
+								</button>
+							</div>
+							<div class="columns pull-right">
+								<button class="btn btn-success" onclick="reLoad()">查询</button>
+							</div>
+
+							<div class="columns pull-right col-md-2 nopadding">
+								<input id="searchName" type="text" class="form-control"
+									placeholder="文章名称">
+							</div>
+                            <div class="columns pull-right col-md-2 nopadding">
+                                <select id="Status" data-placeholder="选择类别" class="form-control chosen-select"
+                                        tabindex="2" style="width: 100%">
+                                    <option value="0">选择类别</option>
+                                    <option value="1">已上架</option>
+                                    <option value="2">已下架</option>
+                                </select>
+                            </div>
+						</div>
+						<table id="exampleTable" data-mobile-responsive="true">
+						</table>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	{{template "footer" .}}
+	<script type="text/javascript" src="{{StaticUrl}}/js/appjs/article/article.js"></script>
+</body>
+</html>

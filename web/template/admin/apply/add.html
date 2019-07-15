@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+{{template "header" .}}
+<style>
+    .preview, .preBlock {
+        position: absolute;
+        display: block;
+        width: 116px;
+        height: 116px;
+        left: 0;
+        top: 0;
+    }
+    .preview1, .preBlock1 {
+        position: absolute;
+        display: block;
+        width: 150px;
+        height: 266px;
+        left: 0;
+        top: 0;
+    }
+    img[src=""],img:not([src]){opacity:0;}
+</style>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+							<input id="Id" name="Id" type="hidden">
+							<div class="form-group">
+								<label class="col-sm-3 control-label">小程序名称：</label>
+								<div class="col-sm-8">
+									<input id="Title" name="Title" class="form-control" type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">小程序分类：</label>
+								<div class="col-sm-8">
+									<input id="Cid" name="Cid" class="hidden">
+									<input id="Cname" name="Cname" class="form-control" type="text"
+										style="cursor: pointer;" onclick="openCategory()"
+										readonly="readonly" placeholder="所属类目">
+								</div>
+							</div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">主体信息（须与微信中主体信息一致）</label>
+                                <div class="col-sm-8">
+                                    <input id="Author" name="Author" class="form-control" type="text">
+                                </div>
+                            </div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">小程序所属地区：</label>
+                                <div class="col-sm-4">
+                                    <select id="Province" name="Province" class="form-control"
+                                            tabindex="2" style="width: 100%">
+                                        <option value="">-请选择-</option>
+                                    {{ $ProvideId := .article.ProvideId }}
+                                    {{ range $key, $city := .province}}
+                                        <option value="{{$city.Id}}">{{$city.Name}}</option>
+                                    {{ end }}
+                                    </select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <select id="City" name="City" class="form-control"
+                                            tabindex="2" style="width: 100%">
+                                        <option value="">-请选择-</option>
+                                    </select>
+                                </div>
+							</div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">小程序标签：</label>
+                                <div class="col-sm-8">
+                                    <input id="Keywords" name="Keywords" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">联系QQ：</label>
+                                <div class="col-sm-8">
+                                    <input id="Qq" name="Qq" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">小程序图标：</label>
+                                <div class="col-sm-8">
+                                    <input id="PicCover" name="PicCover" class="form-control"
+                                           type="hidden">
+                                    <div class="layui-upload-drag" style="padding: 0px;width: 116px;height: 116px" id="PicCoverElm">
+                                        <i class="layui-icon"></i>
+                                        <p>点击上传</p>
+                                        <div class="preBlock">
+                                            <img class="preview" id="PicCoverPreview" alt="" width="116" height="116">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">小程序二维码：</label>
+                                <div class="col-sm-8">
+                                    <input id="PicQrcode" name="PicQrcode" class="form-control"
+                                           type="hidden">
+                                    <div class="layui-upload-drag" style="padding: 0px;width: 116px;height: 116px" id="PicQrcodeElm">
+                                        <i class="layui-icon"></i>
+                                        <p>点击上传</p>
+                                        <div class="preBlock">
+                                            <img class="preview" id="PicQrcodePreview" alt="" width="116" height="116">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">小程序介绍：</label>
+                                <div class="col-sm-8">
+                                    <textarea id="Content" name="Content" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">小程序截图：</label>
+                                <div class="col-sm-8">
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input id="Screenshot0" name="Screenshot0" class="form-control"
+                                           type="hidden">
+                                    <div class="layui-upload-drag" style="padding: 0px;width: 150px;height: 266px" id="Screenshot0Elm">
+                                        <i class="layui-icon"></i>
+                                        <p>点击上传</p>
+                                        <div class="preBlock1">
+                                            <img class="preview1" id="Screenshot0Preview" alt="" width="150" height="266">
+                                        </div>
+                                    </div>
+                                    <input id="Screenshot1" name="Screenshot1" class="form-control"
+                                           type="hidden">
+                                    <div class="layui-upload-drag" style="padding: 0px;width: 150px;height: 266px" id="Screenshot1Elm">
+                                        <i class="layui-icon"></i>
+                                        <p>点击上传</p>
+                                        <div class="preBlock1">
+                                            <img class="preview1" id="Screenshot1Preview" alt="" width="150" height="266">
+                                        </div>
+                                    </div>
+                                    <input id="Screenshot2" name="Screenshot2" class="form-control"
+                                           type="hidden">
+                                    <div class="layui-upload-drag" style="padding: 0px;width: 150px;height: 266px" id="Screenshot2Elm">
+                                        <i class="layui-icon"></i>
+                                        <p>点击上传</p>
+                                        <div class="preBlock1">
+                                            <img class="preview1" id="Screenshot2Preview" alt="" width="150" height="266">
+                                        </div>
+                                    </div>
+                                    <input id="Screenshot3" name="Screenshot3" class="form-control"
+                                           type="hidden">
+                                    <div class="layui-upload-drag" style="padding: 0px;width: 150px;height: 266px" id="Screenshot3Elm">
+                                        <i class="layui-icon"></i>
+                                        <p>点击上传</p>
+                                        <div class="preBlock1">
+                                            <img class="preview1" id="Screenshot3Preview" alt="" width="150" height="266">
+                                        </div>
+                                    </div>
+                                    <input id="Screenshot4" name="Screenshot4" class="form-control"
+                                           type="hidden">
+                                    <div class="layui-upload-drag" style="padding: 0px;width: 150px;height: 266px" id="Screenshot4Elm">
+                                        <i class="layui-icon"></i>
+                                        <p>点击上传</p>
+                                        <div class="preBlock1">
+                                            <img class="preview1" id="Screenshot4Preview" alt="" width="150" height="266">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+							<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	{{template "footer" .}}
+	<script type="text/javascript" src="{{StaticUrl}}/js/appjs/apply/add.js">
+	</script>
+    <script>
+        layui.use('upload', function(){
+            var $ = layui.jquery,upload = layui.upload;
+
+            //拖拽上传
+            upload.render({
+                elem: '#PicCoverElm',
+                method:'POST'
+                ,url: '/upload'
+                ,done: function(data){
+                    if (data.code == 0) {
+                        $("#PicCoverPreview").attr("src", data.data.url);
+                        $("#PicCover").attr("value", data.data.url);
+                    } else {
+                        parent.layer.msg(data.msg);
+                    }
+                }
+            });
+
+            upload.render({
+                elem: '#PicQrcodeElm',
+                method:'POST'
+                ,url: '/upload'
+                ,done: function(data){
+                    if (data.code == 0) {
+                        $("#PicQrcodePreview").attr("src", data.data.url);
+                        $("#PicQrcode").attr("value", data.data.url);
+                    } else {
+                        parent.layer.msg(data.msg);
+                    }
+                }
+            });
+
+            upload.render({
+                elem: '#Screenshot0Elm',
+                method:'POST'
+                ,url: '/upload'
+                ,done: function(data){
+                    if (data.code == 0) {
+                        $("#Screenshot0Preview").attr("src", data.data.url);
+                        $("#Screenshot0").attr("value", data.data.url);
+                    } else {
+                        parent.layer.msg(data.msg);
+                    }
+                }
+            });
+
+            upload.render({
+                elem: '#Screenshot1Elm',
+                method:'POST'
+                ,url: '/upload'
+                ,done: function(data){
+                    if (data.code == 0) {
+                        $("#Screenshot1Preview").attr("src", data.data.url);
+                        $("#Screenshot1").attr("value", data.data.url);
+                    } else {
+                        parent.layer.msg(data.msg);
+                    }
+                }
+            });
+
+            upload.render({
+                elem: '#Screenshot2Elm',
+                method:'POST'
+                ,url: '/upload'
+                ,done: function(data){
+                    if (data.code == 0) {
+                        $("#Screenshot2Preview").attr("src", data.data.url);
+                        $("#Screenshot2").attr("value", data.data.url);
+                    } else {
+                        parent.layer.msg(data.msg);
+                    }
+                }
+            });
+
+            upload.render({
+                elem: '#Screenshot3Elm',
+                method:'POST'
+                ,url: '/upload'
+                ,done: function(data){
+                    if (data.code == 0) {
+                        $("#Screenshot3Preview").attr("src", data.data.url);
+                        $("#Screenshot3").attr("value", data.data.url);
+                    } else {
+                        parent.layer.msg(data.msg);
+                    }
+                }
+            });
+
+            upload.render({
+                elem: '#Screenshot4Elm',
+                method:'POST'
+                ,url: '/upload'
+                ,done: function(data){
+                    if (data.code == 0) {
+                        $("#Screenshot4Preview").attr("src", data.data.url);
+                        $("#Screenshot4").attr("value", data.data.url);
+                    } else {
+                        parent.layer.msg(data.msg);
+                    }
+                }
+            });
+
+            upload.render({
+                elem: '#Screenshot5Elm',
+                method:'POST'
+                ,url: '/upload'
+                ,done: function(data){
+                    if (data.code == 0) {
+                        $("#Screenshot5Preview").attr("src", data.data.url);
+                        $("#Screenshot5").attr("value", data.data.url);
+                    } else {
+                        parent.layer.msg(data.msg);
+                    }
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>

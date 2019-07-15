@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<meta charset="utf-8">
+{{template "header" .}}
+
+<body class="gray-bg">
+	<div class="wrapper wrapper-content animated fadeInRight">
+
+		<div class="row">
+			<div class="col-sm-12">
+
+				<div class="ibox-content">
+					<form class="form-horizontal m-t" id="signupForm">
+						<input id="Id" name="Id" value="{{.Id}}"
+							type="hidden">
+						<div class="form-group">
+							<label class="col-sm-3 control-label">审核状态：</label>
+							<div class="col-sm-8">
+                                <select id="Pass" name="Pass" data-placeholder="选择类别" class="form-control chosen-select"
+                                        tabindex="2" style="width: 100%">
+                                    <option value="0" {{ if eq .Pass 0 }}selected = "selected"{{ end }}>选择类别</option>
+                                    <option value="1" {{ if eq .Pass 1 }}selected = "selected"{{ end }}>未审核</option>
+                                    <option value="2" {{ if eq .Pass 2 }}selected = "selected"{{ end }}>未通过</option>
+                                    <option value="3" {{ if eq .Pass 3 }}selected = "selected"{{ end }}>已通过</option>
+                                </select>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-8 col-sm-offset-3">
+								<button type="submit" class="btn btn-primary">提交</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 全局js -->
+	<script src="{{StaticUrl}}/js/jquery.min.js?v=2.1.4"></script>
+	<script src="{{StaticUrl}}/js/bootstrap.min.js?v=3.3.6"></script>
+
+	<!-- 自定义js -->
+	<script src="{{StaticUrl}}/js/content.js?v=1.0.0"></script>
+
+	<!-- jQuery Validation plugin javascript-->
+	<script src="{{StaticUrl}}/js/plugins/validate/jquery.validate.min.js"></script>
+	<script src="{{StaticUrl}}/js/plugins/validate/messages_zh.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			validateRule();
+		});
+		$.validator.setDefaults({
+			submitHandler : function() {
+				update();
+			}
+		});
+		function update() {
+			$.ajax({
+				cache : true,
+				type : "POST",
+				url : "/apply/pass",
+				data : $('#signupForm').serialize(),// 你的formid
+				async : false,
+				error : function(request) {
+					parent.layer.msg("系统错误，联系管理员");
+				},
+				success : function(data) {
+					if (data.code == 0) {
+						parent.layer.msg(data.msg);
+						parent.reLoad();
+						var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+						parent.layer.close(index);
+
+                    } else if (data.code == -1){
+                        var msg = "";
+                        for(var key in data.msg){
+                            msg += data.msg[key];
+                            msg += "<BR>";
+                        }
+                        parent.layer.msg(msg);
+                    } else {
+                        parent.layer.msg(data.msg);
+                    }
+
+				}
+			});
+
+		}
+
+		function validateRule() {
+			var icon = "<i class='fa fa-times-circle'></i> ";
+			$("#signupForm").validate({
+				rules : {
+				},
+				messages : {
+				}
+			})
+		}
+	</script>
+</body>
+
+</html>

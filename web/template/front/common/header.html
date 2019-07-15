@@ -1,0 +1,36 @@
+{{define "front_header"}}
+<div class="header">
+    <div class="logo-wrap">
+        <div class="inner">
+            <h1 id="header-logo" class="logo">微信小程序商店</h1>
+            <span id="header-nav-btn" class="header-nav-btn icon-sanheng" data="1"></span>
+            <div id="header-nav" class="header-nav">
+                <a href="{{AppUrl}}" class="{{if eq $.menu 0}}active{{end}}">首页</a>
+                <a href="{{AppUrl}}/app" class="{{if eq $.menu 1000}}active{{end}}">小程序</a>
+                <a href="{{AppUrl}}/game" class="{{if eq $.menu 1001}}active{{end}}">小游戏</a>
+                <a href="{{AppUrl}}/mp" class="{{if eq $.menu 1002}}active{{end}}">公众号</a>
+                <a href="{{AppUrl}}/specials" class="{{if eq $.menu 2}}active{{end}}">专题</a>
+                <a href="{{AppUrl}}/rank" class="tab {{if eq $.menu 3}}active{{end}}">排行榜</a>
+                <a href="{{AppUrl}}/evaluates" class="{{if eq $.menu 4}}active{{end}}">评测</a>
+            </div>
+            <form class="header-search" method="post" action="{{AppUrl}}/search">
+                <input type="hidden" name="t" value="{{.t}}">
+                {{if .t}}
+                    {{if eq "app" .t}}
+                        <input type="text" class="query" name="q" value="{{.q}}" placeholder="搜索小程序">
+                    {{end}}
+                    {{if eq "mp" .t}}
+                        <input type="text" class="query" name="q" value="{{.q}}" placeholder="搜索公众号">
+                    {{end}}
+                    {{if eq "eva" .t}}
+                        <input type="text" class="query" name="q" value="{{.q}}" placeholder="搜索评测">
+                    {{end}}
+                {{else}}
+                    <input type="text" class="query" name="q" value="{{.q}}" placeholder="搜索小程序">
+                {{end}}
+                <button class="submit" type="submit">搜索</button>
+            </form>
+        </div>
+    </div>
+</div>
+{{end}}

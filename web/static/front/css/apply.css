@@ -1,0 +1,261 @@
+a:hover{
+    text-decoration: none;
+}
+.page {
+    overflow: hidden;
+    margin-top: 30px;
+    background: #fff;
+}
+
+.apply {
+    width:80%;
+    margin:0 auto;
+    margin-bottom: 40px;
+}
+
+
+.field li {
+    margin-top: 25px
+}
+
+.field label {
+    line-height: 20px;
+    color: #666
+}
+
+.field input {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    outline: 0 none;
+    line-height: 32px;
+}
+
+.field textarea {
+    display: block;
+    width: 100%;
+    height: 100px;
+    margin-top: 12px;
+    padding: 10px;
+    outline: 0 none;
+    border: 1px solid #ddd;
+}
+
+.field select {
+    display: block;
+    width: 110px;
+    height: 30px;
+    margin-top: 8px;
+    padding: 0 5px;
+    outline: 0;
+    border-radius: 0;
+    border: 1px solid #ddd;
+    line-height: 30px;
+    background: #fff;
+    text-align: center;
+    font-size: 12px;
+}
+
+.area select {
+    display: inline-block;
+    margin-right: 10px
+}
+
+.field input:focus,.field textarea:focus {
+    border-color: #666
+}
+
+.field .file-item {
+    float: left;
+    width: 200px;
+    margin-right: 100px
+}
+
+.field .file {
+    overflow: hidden;
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    font-size: 4rem;
+    text-align: center;
+    color: #aaa
+}
+
+.field .label {
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+}
+
+.field .add {
+    display: block;
+    cursor: pointer;
+    width: 116px;
+    height: 116px;
+    line-height: 116px;
+    border: 2px dashed #eaeaea
+}
+
+.field .del {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    background: rgba(0,0,0,.7);
+    color: #fff;
+    font-size: 12px
+}
+
+.field .preview {
+    display: none;
+    margin: 0 auto
+}
+
+.uploaded .add {
+    display: none
+}
+
+.uploaded .preview {
+    cursor: pointer;
+    display: block
+}
+
+.uploaded:hover .del {
+    display: block
+}
+
+.field input[type=file] {
+     cursor: pointer;
+     position: absolute;
+     top: 0;
+     left: 0;
+     opacity: 0;
+     /*width: 100%;*/
+     /*height: 100%;*/
+     margin: 0;
+     padding: 0
+ }
+
+.field .screenshot-list {
+    float: left
+}
+
+.field .screenshot-list .preview {
+    cursor: default
+}
+
+.field .add-screenshot {
+    float: left
+}
+
+.field .add-screenshot .file,.field .screenshot-list .file {
+    float: left;
+    width: 150px;
+    height: 266px;
+    margin-right: 15px
+}
+
+.field .add-screenshot .add {
+    width: 146px;
+    height: 262px;
+    line-height: 262px
+}
+
+.field .btn-group {
+    margin-top: 10px
+}
+
+.field .btn-group span {
+    color: #999
+}
+
+.field .submit {
+    cursor: pointer;
+    width: 90px;
+    height: 36px;
+    margin-top: 20px;
+    margin-right: 20px;
+    text-align: center;
+    border-radius: 3px;
+    outline: 0 none;
+    border: 0 none;
+    color: #fff;
+    font-size: 14px;
+    background: #ea6f5a
+}
+
+.field .cancel {
+    display: inline-block;
+    width: 90px;
+    height: 36px;
+    margin-top: 20px;
+    margin-right: 20px;
+    text-align: center;
+    border-radius: 3px;
+    outline: 0 none;
+    border: 1px solid #eaeef1;
+    background: #fff;
+    color: #666;
+    line-height: 34px;
+    text-align: center
+}
+
+.field .cancel:hover {
+    color: #666;
+    text-decoration: none
+}
+
+.captcha-img {
+    cursor: pointer;
+    box-shadow: 0 0 6px #cac6c6;
+}
+
+.tab-turn {
+    height: 50px;
+    font-size: 0;
+    border-bottom: 1px solid #f0f0f0;
+    text-align: center;
+}
+.tab-turn a.active {
+    border-bottom: 3px solid #ea6f5a;
+}
+.tab-turn a {
+    display: inline-block;
+    margin: 0 44px;
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px;
+    color: #303030;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/**
+ * 适应手机屏幕
+ */
+@media screen and ( max-width : 767px) {
+    .apply {
+        width:96%;
+        margin:0 auto;
+    }
+    .field textarea {
+         padding: 0;
+    }
+    .field input {
+        padding: 0;
+    }
+    .field .file-item {
+        float: left;
+        width: 120px;
+        margin-right: 50px
+    }
+}

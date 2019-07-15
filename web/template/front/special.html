@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{.special.Title}} - 小程序专题推荐 - 小程序商店 | 139小程序商店(139ud.com)</title>
+    <meta name="keywords" content="{{.special.Title}},{{.special.Title}}小程序,{{.special.Title}}微信二维码" />
+    <meta name="description" content="{{.special.Desc}}" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="applicable-device" content="pc,mobile">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+    <link rel="dns-prefetch" href="//static.139ud.com">
+    <link rel="dns-prefetch" href="//img.139ud.com">
+    <link rel="shortcut icon" type="image/x-icon" href="{{StaticUrl}}/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="{{StaticUrl}}/favicon.ico">
+    <link rel="stylesheet" href="{{StaticUrl}}/front/css/mobile.css" media="screen and (max-width:768px)" />
+    <link rel="stylesheet" href="{{StaticUrl}}/front/css/special.css" />
+</head>
+<body>
+<div class="wrap">
+{{template "front_header" .}}
+    <div class="body special-page clearfix">
+        <div class="breadcrumb">
+            <a href="{{AppUrl}}">小程序商店</a><span class="icon-right"></span><strong class="active">{{.special.Title}}</strong>
+        </div>
+        <div class="intro clearfix">
+            <img class="cover" src="{{.special.Pic}}" alt="{{.special.Title}}">
+            <div class="info">
+                <h1>{{.special.Title}}</h1>
+                <div class="content">
+                    <p></p>
+                    <p>{{.special.Desc}}~</p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <ul class="cate-list clearfix">
+            {{range .special.Articles}}
+            <li class="item">
+                <a class="avatar" target="_blank" href="{{AppUrl}}/detail/{{.Id}}" title="{{.Title}}">
+                    <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{.PicCover}}" width="70" height="70" alt="{{.Title}}">
+                </a>
+                <a class="title" target="_blank" href="{{AppUrl}}/detail/{{.Id}}" title="{{.Title}}">{{.Title}}</a>
+                <div class="tags">
+                {{$tags := string2Arr .Keywords}}
+                {{range $tags}}
+                    <a rel="nofollow" href="{{AppUrl}}/search?q={{.}}">{{.}}</a>
+                {{end}}
+                </div>
+            </li>
+            {{end}}
+        </ul>
+        <h2 class="more-special-title">更多专题</h2>
+        <div class="more-special renderlist clearfix">
+        {{range .randSpecial}}
+            <a target="_blank" href="{{AppUrl}}/special/{{.Id}}" title="{{.Title}}">
+                <img width="250" height="90" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{.Pic}}" alt="{{.Title}}">
+            </a>
+        {{end}}
+        </div>
+    </div>
+{{template "front_footer" .}}
+</div>
+<script src="{{StaticUrl}}/front/js/common.js"></script>
+{{template "front_script" .}}
+</body>
+</html>

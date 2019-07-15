@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小程序专题推荐 - 小程序商店 | 139小程序商店(139ud.com)</title>
+    <meta name="keywords" content="微信小程序,小程序,微信小游戏,小游戏,小程序商店,小程序大全,小程序平台" />
+    <meta name="description" content="139小程序商店收录最新、最全、最热门、最实用的微信小程序和微信小游戏，是国内首家集小程序资讯、小程序游戏、小程序分发、小程序推广为一体的综合性小程序门户网站。" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="applicable-device" content="pc,mobile">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+    <link rel="dns-prefetch" href="//static.139ud.com">
+    <link rel="dns-prefetch" href="//img.139ud.com">
+    <link rel="shortcut icon" type="image/x-icon" href="{{StaticUrl}}/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="{{StaticUrl}}/favicon.ico">
+    <link rel="stylesheet" href="{{StaticUrl}}/front/css/mobile.css" media="screen and (max-width:768px)" />
+    <link rel="stylesheet" href="{{StaticUrl}}/front/css/index.css" />
+    <link rel="stylesheet" href="{{StaticUrl}}/front/css/specials.css" />
+</head>
+<body>
+<div class="wrap">
+{{template "front_header" .}}
+    <div class="body clearfix">
+        <div class="breadcrumb">
+            <a href="{{AppUrl}}">小程序商店</a><span class="icon-right"></span><strong class="active">专题大全</strong>
+        </div>
+            <ul class="specails-list clearfix">
+            {{range .specials}}
+                <li class="item imgScale">
+                    <div class="subject">
+                        <a href="{{AppUrl}}/special/{{.Id}}" class="sub-img content" target="_blank">
+                            <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{.Pic}}" alt="{{.Title}}" style="width: 100%;" class="scale_return">
+                        </a>
+                        <div class="subject-tip">{{len .Articles}} 款小程序</div>
+                        <div class="lite-new">
+                            {{range .Articles}}
+                            <a href="{{AppUrl}}/detail/{{.Id}}" class="clear" target="_blank">
+                                <div class="img-new">
+                                    <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{.PicCover}}" alt="{{.Title}}小程序" style="width: 100%;">
+                                </div>
+                                <div class="data-new ellipsis">{{.Title}}</div>
+                                <div class="tags">
+                                    {{$tags := string2Arr .Keywords}}
+                                    {{range $tags}}
+                                        <span>{{.}}</span>
+                                    {{end}}
+                                </div>
+                            </a>
+                            {{end}}
+                        </div>
+                        <div class="goBtn">
+                            <a href="{{AppUrl}}/special/{{.Id}}" target="_blank">进入专题</a>
+                        </div>
+                    </div>
+                </li>
+            {{end}}
+            </ul>
+        <div class="pagination">
+        {{if gt .paginator.totalpages 1}}
+
+            {{if ne .paginator.currpage .paginator.firstpage }}
+                <a href="{{AppUrl}}/specials?page={{.paginator.firstpage}}" class="pagination-prev">上一页</a>
+            {{end}}
+            {{range $index,$page := .paginator.pages}}
+                {{if eq $.paginator.currpage $page }}
+                    <span class="pagination-curr">{{$page}}</span>
+                {{else}}
+                    <a href="{{AppUrl}}/specials?page={{$page}}">{{$page}}</a>
+                {{end}}
+            {{end}}
+            {{if ne .paginator.currpage .paginator.lastpage }}
+                <a href="{{AppUrl}}/specials?page={{.paginator.lastpage}}" class="pagination-next">下一页</a>
+            {{end}}
+
+        {{end}}
+        </div>
+    </div>
+{{template "front_footer" .}}
+</div>
+<script src="{{StaticUrl}}/front/js/common.js"></script>
+{{template "front_script" .}}
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>友情链接 - 小程序商店 | 139小程序商店(139ud.com)</title>
+    <meta name="keywords" content="微信小程序,小程序,微信小游戏,小游戏,小程序商店" />
+    <meta name="description" content="139小程序商店收录最新、最全、最热门、最实用的微信小程序和微信小游戏，是国内首家集小程序资讯、小程序游戏、小程序分发、小程序推广为一体的综合性小程序门户网站。" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+    <link rel="dns-prefetch" href="http://static.139ud.com/" />
+    <link rel="dns-prefetch" href="http://img.139ud.com/" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{StaticUrl}}/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="{{StaticUrl}}/favicon.ico" />
+    <link rel="stylesheet" href="{{StaticUrl}}/front/css/mobile.css" media="screen and (max-width:768px)" />
+    <link rel="stylesheet" href="{{StaticUrl}}/front/css/index.css" />
+    <link rel="stylesheet" href="{{StaticUrl}}/front/css/links.css" />
+</head>
+<body>
+<div class="wrap">
+{{template "front_header" .}}
+    <div class="body clearfix">
+        <div class="page marked">
+            <h3 id="-">合作站点：</h3>
+            <div class="inner-link">
+                {{range .links}}
+                <a target="_blank" href="{{.Url}}">{{.Title}}</a>
+                {{end}}
+            </div>
+            <h4 id="-">首页友链要求：</h4>
+            <ol>
+                <li>微信相关或IT科技类网站</li>
+                <li>PR &gt;= 4，BR &gt;= 4</li>
+                <li>收录正常，快照3日内</li>
+            </ol>
+            <p>不符合首页要求的，可以与本页友链，联系QQ：
+                <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=371212848&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:371212848:41" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+            </p>
+            <p>本站保留友链添加与否的权利，并会定期对友链进行检查。对不符合首页要求的站点会移到本页或删除。</p>
+            <h4 id="-">本站链接信息：</h4>
+            <ul>
+                <li>标题：139小程序商店</li>
+                <li>链接：<a href="{{AppUrl}}">{{AppUrl}}</a></li>
+            </ul>
+        </div>
+    </div>
+{{template "front_footer" .}}
+</div>
+<script src="{{StaticUrl}}/front/js/common.js"></script>
+{{template "front_script" .}}
+</body>
+</html>

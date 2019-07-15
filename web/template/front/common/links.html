@@ -1,0 +1,10 @@
+{{define "front_links"}}
+<div class="module">
+    <h2>友情链接</h2>
+    <ul class="link clearfix">
+        {{range .links}}
+        <li><a target="_blank" href="{{.Url}}">{{.Title}}</a></li>
+        {{end}}
+    </ul>
+</div>
+{{end}}

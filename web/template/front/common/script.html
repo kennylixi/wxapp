@@ -1,0 +1,45 @@
+{{define "front_script"}}
+<script>
+    {{if eq ProMode true}}
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?c03c73f2e793e827c3f4a05a09175483";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        // 推送代码
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        // 百度分享
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"0","bdPos":"right","bdTop":"200"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    {{end}}
+
+    var m=$("#header-nav-btn");
+    m.click(function(){
+        var type=m.attr("data");
+        if (type==1) {
+            m.attr("data", 0);
+            $("#header-nav").css("display","flex");
+        } else {
+            m.attr("data", 1);
+            $("#header-nav").css("display","none");
+        }
+    });
+
+    var logo=$("#header-logo");
+    logo.click(function(){
+        $(location).attr('href', '{{AppUrl}}');
+    });
+</script>
+{{end}}

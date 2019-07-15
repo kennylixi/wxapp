@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>发布小程序 - 小程序商店 | 139小程序商店(139ud.com)</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+    <link rel="dns-prefetch" href="//static.139ud.com" />
+    <link rel="dns-prefetch" href="//img.139ud.com" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{StaticUrl}}/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="{{StaticUrl}}/favicon.ico" />
+    <link rel="stylesheet" href="{{StaticUrl}}/front/css/mobile.css" media="screen and (max-width:768px)" />
+    <link rel="stylesheet" href="{{StaticUrl}}/front/css/index.css" />
+    <link rel="stylesheet" href="{{StaticUrl}}/front/css/apply.css" />
+</head>
+<body>
+<div class="wrap">
+{{template "front_header" .}}
+    <div class="body clearfix">
+        <div class="page">
+            <div class="apply">
+                <div class="tab-turn">
+                    <a href="javascript:;" class="active">发布小程序</a>
+                    <a href="{{AppUrl}}/mp/apply">发布公众号</a>
+                </div>
+                <form class="form" method="post" id="signupForm" onsubmit="return!1">
+                    <input type="hidden" id="CaptchaId" name="CaptchaId" value="{{.CaptchaId}}" />
+                    <ul class="field">
+                        <li>
+                            <label for="">小程序名称（须与微信中名称一致）</label>
+                            <input type="text" name="Title" placeholder="请填写小程序名称" value="" />
+                            <input type="hidden" name="Id" value="" />
+                        </li>
+                        <li>
+                            <label for="">小程序分类</label>
+                            <select id="Cid" name="Cid">
+                                <option value="">- 请选择 -</option>
+                                <optgroup label="小程序">
+                                {{range .cnav}}
+                                {{if eq .Pid 1}}
+                                    <option value="{{.Id}}">{{.Title}}</option>
+                                {{end}}
+                                {{end}}
+                                </optgroup>
+                                <optgroup label="小游戏">
+                                {{range .cnav}}
+                                {{if eq .Pid 2}}
+                                    <option value="{{.Id}}">{{.Title}}</option>
+                                {{end}}
+                                {{end}}
+                                </optgroup>
+                            </select>
+                        </li>
+                        <li>
+                            <label for="">主体信息（须与微信中主体信息一致）</label>
+                            <input type="text" name="Author" placeholder="请填写小程序主体信息" value="" />
+                        </li>
+                        <li>
+                            <label for="">小程序所属地区</label>
+                            <div class="area">
+                                <select id="Province" name="Province">
+                                    <option value="">- 请选择 -</option>
+                                {{ range $key, $city := .province}}
+                                    <option value="{{$city.Id}}">{{$city.Name}}</option>
+                                {{ end }}
+                                </select>
+                                <select id="City" name="City" style="display:none"></select>
+                            </div>
+                        </li>
+                        <li>
+                            <label for="">小程序标签（多个以英文空格分隔，如：工具 效率 办公）</label>
+                            <input type="text" name="Keywords" placeholder="请填写小程序标签" value="" />
+                        </li>
+                        <li>
+                            <label for="">联系QQ（方便我们与您取得联系）</label>
+                            <input type="text" name="Qq" placeholder="请填写QQ号" />
+                        </li>
+                        <li class="clearfix">
+                            <label for="">小程序图标 &amp; 二维码（推荐尺寸: 500x500）</label>
+                            <div class="clearfix">
+                                <div class="file-item">
+                                    <div class="file" id="PicCoverElm">
+                                        <span class="add">+</span>
+                                        <img class="preview" src="" width="120" alt="" id="PicCoverPreview" />
+                                        <input class="fileurl" type="hidden" id="PicCover" name="PicCover" value="" />
+                                        <span class="del">更换</span>
+                                    </div>
+                                    <label class="label" for="">小程序图标</label>
+                                </div>
+                                <div class="file-item">
+                                    <div class="file " id="PicQrcodeElm">
+                                        <span class="add">+</span>
+                                        <img class="preview" src="" width="120" alt="" id="PicQrcodePreview" />
+                                        <input class="fileurl" type="hidden" id="PicQrcode" name="PicQrcode" value="" />
+                                        <span class="del">更换</span>
+                                    </div>
+                                    <label class="label" for="">小程序二维码</label>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <label for="">小程序介绍</label>
+                            <textarea name="Content" placeholder="描述内容越丰富，越有可能被推荐到首页哦~" minlength="50"></textarea>
+                        </li>
+                        <li>
+                            <label for="">小程序截图（推荐尺寸: 1334x750, 建议至少上传三张）</label>
+                            <div class="clearfix">
+                                <div class="screenshot-list clearfix"></div>
+                                <div class="add-screenshot" style="display: block">
+                                    <div class="file" id="Screenshot0Elm">
+                                        <span class="add">+</span>
+                                        <img class="preview" id="Screenshot0Preview" src="#" width="150" alt="" />
+                                        <span class="del">删除</span>
+                                    </div>
+                                    <input class="check-screenshot" type="hidden" name="Screenshot0" value="" />
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <label for="">验证码：</label>
+                            <img id="cap" src="{{.Captcha}}" class="captcha-img"/>
+                            <input type="text" name="Captcha" style="display: inline;width: 80px;margin-top: 0px;padding: 0 10px;border: 1px solid #ddd;outline: 0 none;line-height: 32px;font-size: 12px;" />
+                        </li>
+                        <li class="btn-group clearfix">
+                            <button class="submit" type="button" onclick="save()">提交</button>
+                            <a class="cancel" href="/">取消</a>
+                        </li>
+                        <li>
+                            <p>提&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp示：您的申请我们将在24小时内进行审核，紧急审核请联系客服。</p>
+                            <p>注&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp意：您可以联系客服发布小程序评测，增加更多曝光机会。</p>
+                            <p>联系客服：<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=371212848&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:371212848:41" alt="点击这里给我发消息" title="点击这里给我发消息"/></a></p>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+{{template "front_footer" .}}
+</div>
+<script src="{{StaticUrl}}/front/js/common.js"></script>
+<script src="{{StaticUrl}}/js/plugins/layer/layer.js"></script>
+<script src="{{StaticUrl}}/js/layui.js"></script>
+<script src="{{StaticUrl}}/front/js/apply.js"></script>
+{{template "front_script" .}}
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<meta charset="utf-8">
+{{template "header" .}}
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox">
+					<div class="ibox-body">
+						<div class="fixed-table-toolbar">
+							<div class="columns pull-left">
+								<button type="button"
+									class="btn  btn-danger" onclick="unBind()">
+									<i class="fa fa-trash hidden" aria-hidden="true"></i>取消绑定
+								</button>
+							</div>
+                            <div class="columns pull-right col-md-2 nopadding">
+                                <select id="Special" name="Special" class="form-control chosen-select"
+                                        tabindex="2" style="width: 100%">
+                                    <option value="">-请选择-</option>
+								{{ range $key, $special := .special}}
+                                    <option value="{{$special.Id}}">{{$special.Title}}</option>
+								{{ end }}
+                                </select>
+                            </div>
+						</div>
+						<table id="exampleTable" data-mobile-responsive="true">
+						</table>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	{{template "footer" .}}
+	<script type="text/javascript" src="{{StaticUrl}}/js/appjs/special/article.js"></script>
+</body>
+</html>

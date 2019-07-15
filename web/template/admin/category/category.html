@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+{{template "header" .}}
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="col-sm-12">
+			<div class="ibox">
+				<div class="ibox-body">
+					<div id="exampleToolbar" role="group">
+						<button type="button" class="btn  btn-primary" onclick="add(0)">
+							<i class="fa fa-plus hidden" aria-hidden="true"></i>添加
+						</button>
+					</div>
+					<table id="exampleTable" data-mobile-responsive="true">
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{template "footer" .}}
+	<script type="text/javascript" src="{{StaticUrl}}/js/appjs/category/category.js"></script>
+</body>
+</html>

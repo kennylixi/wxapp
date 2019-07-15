@@ -1,0 +1,178 @@
+@CHARSET "UTF-8";
+
+.sect1 {
+    width: 1024px;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.bg0 {
+    background-color: #ffffff;
+}
+
+.clear {
+    clear: both;
+}
+
+.show2{
+    display: none;
+}
+
+h2.title {
+    border-left:5px solid #ea6f5a;
+    margin: 15px 0 20px 0;
+    padding-left: 8px;
+    color: #666;
+}
+h2.title-c {
+    margin: 25px 0;
+    color: #ea6f5a;
+    text-align: center;
+}
+
+.hot{
+    padding-top: 10px;
+}
+.hot .item{
+    width: 319px;
+    height: 125px;
+    border: 1px solid #f1f1f1;
+    display: block;
+    float: left;
+    margin-left: 18px;
+    padding: 4px;
+    position: relative;
+}
+.hot :first-child{
+    margin-left: 0;
+}
+.hot .item .icon{
+	text-align: center;
+	margin-left: 30px;
+	margin-top: 20px;
+	display: inline-block;
+}
+.hot .item .icon img{
+    height: 81px;
+    width: 81px;
+}
+.hot .item .cont{
+    display: inline-block;
+    position: absolute;
+    left: 140px;
+    top:25px;
+}
+.hot .item .cont .title{
+    font-size: 18px;
+    margin: 12px 0;
+    text-align: center;
+}
+
+.hot .item .cont .views{
+    font-size: 16px;
+    display: block;
+    color: #cccccc;
+}
+.hot .item .rank{
+    width: 63px;
+    height: 62px;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+}
+
+.rank-list{
+    padding-top: 25px;
+    padding-bottom: 65px;
+}
+.rank-list table{
+    width: 100%;
+    border: 1px solid #e4e4e4;
+}
+.rank-list table tr {
+    height: 75px;
+}
+.rank-list table .even{
+    background-color: #f8f8f8;
+}
+.rank-list table tr *{
+    text-align: center;
+    font-size: 18px;
+    color: #303030;
+}
+.rank-list table tr th span{
+    display: block;
+    margin: 26px auto;
+    font-size: 18px;
+    border-left: 1px solid #a2a2a2;
+}
+.rank-list table tr :first-child span{
+    border-left: 0px;
+}
+.rank-list table tr td{
+    border-top: 1px solid #e4e4e4;
+    color: #808080;
+}
+
+.rank-list table tr td img{
+    vertical-align: text-bottom;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.rank-list table tr.tfoot{
+    height: 45px;
+}
+.rank-list table tr.tfoot td a{
+    display:block;
+    height: 45px;
+    line-height: 45px;
+    color: #999999;
+}
+/**
+ * 适应手机屏幕
+ */
+@media screen and ( max-width : 767px) {
+    h1, h2 {
+        margin: 0;
+    }
+    .bg1 {
+        background-color: #ffffff;
+    }
+    .sect1 {
+        width: 94%;
+    }
+    .show1{
+        display: none;
+    }
+    .show2{
+        display: block;
+    }
+    ul.top-nav{
+        margin-left: 0px;
+    }
+    .hot .item {
+        width: 100%;
+        float: none;
+        margin-left: 0px;
+        padding: 4px;
+        margin-bottom: 4px;
+    }
+}
+
+.bg-icons_01 {
+    width: 63px; height: 62px;
+    background: url('http://static.139ud.com/front/img/imgs.png') -10px -10px;
+}
+
+.bg-icons_02 {
+    width: 63px; height: 62px;
+    background: url('http://static.139ud.com/front/img/imgs.png') -93px -10px;
+}
+
+.bg-icons_03 {
+    width: 63px; height: 62px;
+    background: url('http://static.139ud.com/front/img/imgs.png') -10px -92px;
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>小程序平台</title>
+    <meta name="keywords" content="小程序平台">
+    <meta name="description" content="小程序平台">
+    <link href="{{StaticUrl}}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{StaticUrl}}/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="{{StaticUrl}}/css/animate.css" rel="stylesheet">
+    <link href="{{StaticUrl}}/css/style.css" rel="stylesheet">
+    <link href="{{StaticUrl}}/css/login.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html"/>
+    <![endif]-->
+    <script>
+        if (window.top !== window.self) {
+            window.top.location = window.location;
+        }
+    </script>
+
+</head>
+
+<body class="signin">
+<div class="signinpanel">
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="signin-info">
+                <div class="logopanel m-b">
+                    <h1>小程序平台</h1>
+                </div>
+                <div class="m-b"></div>
+                <h3>
+                    欢迎使用 <strong>小程序平台</strong>
+                </h3>
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <form id="signupForm">
+                <h3 class="text-center">用户登录</h3>
+                <p class="m-t-md text-center">欢迎登录小程序后台管理系统</p>
+                <input type="text" name="UserName" class="form-control uname"
+                       value=""/>
+                <input type="password" name="Password"
+                       class="form-control pword m-b" value=""/>
+                <button class="btn btn-login btn-block">登录</button>
+            </form>
+        </div>
+    </div>
+    <div class="signup-footer">
+        <div class="pull-left">&copy; 2017 All Rights Reserved. 139ud.com
+        </div>
+    </div>
+</div>
+<!-- 全局js -->
+<script src="{{StaticUrl}}/js/jquery.min.js?v=2.1.4"></script>
+<script src="{{StaticUrl}}/js/bootstrap.min.js?v=3.3.6"></script>
+
+<!-- 自定义js -->
+<script src="{{StaticUrl}}/js/content.js?v=1.0.0"></script>
+
+<!-- jQuery Validation plugin javascript-->
+<script src="{{StaticUrl}}/js/plugins/validate/jquery.validate.min.js"></script>
+<script src="{{StaticUrl}}/js/plugins/validate/messages_zh.min.js"></script>
+<script src="{{StaticUrl}}/js/plugins/layer/layer.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        validateRule();
+    });
+
+    $.validator.setDefaults({
+        submitHandler: function () {
+            login();
+        }
+    });
+
+    function login() {
+        $.ajax({
+            type: "POST",
+            url: "login",
+            data: $('#signupForm').serialize(),
+            success: function (r) {
+                if (r.code == 0) {
+                    parent.location.href = '/';
+                } else if (r.code == -1){
+                    var msg = "";
+                    for(var key in r.msg){
+                        msg += r.msg[key];
+                        msg += "<BR>";
+                    }
+                    layer.msg(msg);
+                } else {
+                    layer.msg(r.msg);
+                }
+            }
+        });
+    }
+
+    function validateRule() {
+        var icon = "<i class='fa fa-times-circle'></i> ";
+        $("#signupForm").validate({
+            rules: {
+                UserName: {
+                    required: true
+                },
+                Password: {
+                    required: true
+                }
+            },
+            messages: {
+                UserName: {
+                    required: icon + "请输入您的用户名",
+                },
+                Password: {
+                    required: icon + "请输入您的密码",
+                }
+            }
+        })
+    }
+</script>
+
+</body>
+
+
+</html>

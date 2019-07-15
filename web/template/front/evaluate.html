@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>微信小程序测评 | 139小程序商店(139ud.com)</title>
+    <meta name="keywords" content="微信小程序最新测评,小程序测评,小程序测评内容,小程序怎么用,小程序在哪里" />
+    <meta name="description" content="139小程序商店(139ud.com)测评中心为您提供最新、最好玩的微信小程序测评，找最新、最好玩的苹果(iPhone)、安卓(android)、WP小程序，就来139小程序(139ud.com)测评中心。" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+    <link rel="dns-prefetch" href="http://static.139ud.com/" />
+    <link rel="dns-prefetch" href="http://img.139ud.com/" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{StaticUrl}}/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="{{StaticUrl}}/favicon.ico" />
+    <link rel="stylesheet" href="{{StaticUrl}}/front/css/mobile.css" media="screen and (max-width:768px)" />
+    <link rel="stylesheet" href="{{StaticUrl}}/front/css/index.css" />
+    <link rel="stylesheet" href="{{StaticUrl}}/front/css/evaluate.css" />
+    <script>
+        //处理图片的宽高
+        function setImgWH(obj) {
+            if(obj.width > obj.height) {
+                $(obj).css('height', '100%');
+            } else {
+                $(obj).css('width', '100%');
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="wrap">
+{{template "front_header" .}}
+    <div class="body clearfix">
+        <div class="breadcrumb">
+            <a href="{{AppUrl}}">小程序商店</a>
+            <span class="icon-right"></span>
+            <a href="{{AppUrl}}/evaluates">评测</a>
+            <span class="icon-right"></span>
+            <strong class="active">{{.evaluate.Title}}</strong>
+        </div>
+        <div class="main">
+            <div class="contents">
+                <h1>{{.evaluate.Title}}</h1>
+                <div class="data-detail clearfix">
+                    <p class="fl">文章来源：{{.evaluate.Source}}</p>
+
+                    <p class="fl time-art"><label></label>{{DateFormat .evaluate.CreatedAt}}</p>
+                    <p class="view-count fl"><label></label>{{.evaluate.Browse}}</p>
+                    <p class="label-art fl">
+                        <label class="lableIcon"></label>
+                        {{ $Keywords := string2Arr .evaluate.Keywords}}
+                        {{range $Keywords}}
+                            <a rel="nofollow" href="{{AppUrl}}/search?t=eva&q={{.}}">{{.}}</a>
+                        {{end}}
+                    </p>
+                </div>
+                <div class="evaluate">
+                    <a class="clearfix" href="{{AppUrl}}/detail/{{.evaluate.Article.Id}}" target="_blank">
+                        <span class="fl">
+                            <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{.evaluate.Article.PicCover}}" alt="{{.evaluate.Article.Title}}小程序" style="width: 100%;">
+                        </span>
+                        <div class="fl datas">
+                            <h3>{{.evaluate.Article.Title}}</h3>
+                            <p>{{.evaluate.Article.Content}}</p>
+                        </div>
+                        <div class="fl num">{{.evaluate.Score}}<span>分</span></div>
+                        <div class="qrcode fl">
+                            <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{.evaluate.Article.PicQrcode}}" alt="小程序二维码">
+                            <p>微信扫描体验</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="evaluating">
+                    <span class="applogo fl"><img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{.evaluate.Article.PicCover}}" alt="{{.evaluate.Article.Title}}小程序"></span>
+                    <div class="right fr">
+                        <span class="score" style=" width: 6rem;display: block; text-align: center; font-size: 1.5rem; color: #ffa200; ">{{.evaluate.Score}} <small>分</small></span>
+                        <a href="{{AppUrl}}/detail/{{.evaluate.Article.Id}}" class="btn" style="padding-top: 0.4rem; margin-top: .1rem; width: 6rem; height: 2rem; border-radius: 0.5rem;line-height: 1rem; position: static; display: block; transform: translateY(0);">查看详情</a>
+                    </div>
+                    <div class="m">
+                        <div class="title">{{.evaluate.Article.Title}}</div>
+                        <p style="margin-top: 0;">{{.evaluate.Article.Content}}</p>
+                    </div>
+                    <div class="clear ewm">
+                        <span><img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{.evaluate.Article.PicQrcode}}"></span>
+                        <p class="ewm-text">保存二维码，前往微信扫一扫，体验小程序</p>
+                    </div>
+                </div>
+                <div class="content-art simditor-body">
+                    {{Html .evaluate.Content}}
+                </div>
+                <div class="comment">
+                    <!--PC和WAP自适应版-->
+                    <div id="SOHUCS" sid="evaluates/{{.evaluate.Id}}" ></div>
+                </div>
+            </div>
+        </div>
+        <div class="aside">
+            <div class="aside-rank">
+                <h2>热门评测</h2>
+                <ul class="aside-evaluate-list">
+                    {{range $index, $a := .eh}}
+                    <a href="{{AppUrl}}/evaluate/{{$a.Id}}" target="_blank">
+                        <img onload="setImgWH(this)" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{$a.PicCover}}" alt="{{$a.Title}}" style="height: 100%;">
+                        <p>
+                            <span>{{$a.Title}}</span>
+                        </p>
+                    </a>
+                    {{end}}
+                </ul>
+            </div>
+            <div class="aside-rank">
+                <h2>最新推荐</h2>
+                <ul class="aside-rank-list">
+                {{range $index, $a := .na}}
+                    <li class="item">
+                        <a href="{{AppUrl}}/detail/{{$a.Id}}">
+                            <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{$a.PicCover}}" width="64" height="64" alt="{{$a.Title}}小程序" />
+                            <em>{{$a.Title}}</em>
+                            <span>{{Replace $a.Keywords ","}}</span>
+                        </a>
+                    </li>
+                {{end}}
+                </ul>
+            </div>
+        </div>
+    </div>
+{{template "front_footer" .}}
+</div>
+<script src="{{StaticUrl}}/front/js/common.js"></script>
+{{template "front_script" .}}
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytA3OIxO';
+        var conf = 'prod_a6811a534cb498de6ee49e40bddfd37f';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })();
+</script>
+</body>
+</html>

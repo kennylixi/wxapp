@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+{{template "header" .}}
+<body class="gray-bg">
+	<div class="wrapper wrapper-content animated fadeInRight">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">上级目录：</label>
+                                <div class="col-sm-8">
+                                    <input id="Pid" name="Pid" value="{{.category.Pid}}" class="form-control hidden" type="text">
+                                </div>
+                                <div class="col-sm-8">
+                                    <input value="{{.Pname}}" class="form-control" type="text" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">目录名称：</label>
+                                <div class="col-sm-8">
+                                    <input id="Id" name="Id" value="{{.category.Id}}" class="form-control hidden" type="text">
+                                </div>
+                                <div class="col-sm-8">
+                                    <input id="Title" name="Title" value="{{.category.Title}}" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">目录简称：</label>
+                                <div class="col-sm-8">
+                                    <input id="ShortTitle" name="ShortTitle" value="{{.category.ShortTitle}}" class="form-control"
+                                           type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">目录拼音：</label>
+                                <div class="col-sm-8">
+                                    <input id="Short" name="Short" value="{{.category.Short}}" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">排序：</label>
+                                <div class="col-sm-8">
+                                    <input id="Sort" name="Sort" value="{{.category.Sort}}" class="form-control"
+                                           type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">状态:</label>
+                                <div class="col-sm-8">
+                                    <label class="radio-inline"> <input type="radio" name="Status" {{if eq .category.Status 1}}checked{{end}} value="1" />
+                                        正常
+                                    </label>
+                                    <label class="radio-inline"> <input type="radio" name="Status" {{if eq .category.Status 2}}checked{{end}} value="2" />
+                                        禁用
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">SEO搜索关键字：</label>
+                                <div class="col-sm-8">
+                                    <input id="SeoKey" name="SeoKey" class="form-control"
+                                           type="text" value="{{.category.SeoKey}}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">SEO描述：</label>
+                                <div class="col-sm-8">
+                                    <textarea id="SeoDesc" name="SeoDesc" class="form-control">{{.category.SeoDesc}}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-3">
+                                    <button type="submit" class="btn btn-primary">提交</button>
+                                </div>
+                            </div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{template "footer" .}}
+	<script type="text/javascript" src="{{StaticUrl}}/js/appjs/category/edit.js">
+	</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<meta charset="utf-8">
+{{template "header" .}}
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-3">
+				<div class="ibox ibox-body">
+					<div class="ibox-title">
+						<h5>选择类目</h5>
+					</div>
+					<div class="ibox-content">
+						<div id="jstree"></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-8">
+				<div class="ibox">
+					<div class="ibox-body">
+						<div class="fixed-table-toolbar">
+							<div class="columns pull-left">
+								<button type="button"
+									class="btn  btn-primary" onclick="add()">
+									<i class="fa fa-plus hidden" aria-hidden="true"></i>添加
+								</button>
+							</div>
+							<div class="columns pull-right">
+								<button class="btn btn-success" onclick="reLoad()">查询</button>
+							</div>
+
+							<div class="columns pull-right col-md-2 nopadding">
+								<input id="searchName" type="text" class="form-control"
+									placeholder="文章名称">
+							</div>
+                            <div class="columns pull-right col-md-2 nopadding">
+                                <select id="Pass" data-placeholder="选择类别" class="form-control chosen-select"
+                                        tabindex="2" style="width: 100%">
+                                    <option value="0">选择类别</option>
+                                    <option value="1">未审核</option>
+                                    <option value="2">未通过</option>
+                                    <option value="3">已通过</option>
+                                </select>
+                            </div>
+						</div>
+						<table id="exampleTable" data-mobile-responsive="true">
+						</table>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	{{template "footer" .}}
+	<script type="text/javascript" src="{{StaticUrl}}/js/appjs/apply/apply.js"></script>
+</body>
+</html>

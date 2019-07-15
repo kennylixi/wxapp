@@ -1,0 +1,304 @@
+a:hover{
+    text-decoration: none;
+}
+.main {
+    float: left;
+    position: relative;
+    width: 730px;
+    padding: 20px;
+    padding-top: 0;
+    background-color: #fff;
+}
+
+.aside {
+    float: right;
+    width: 250px
+}
+
+.aside-rank {
+    background: #fff;
+    margin-bottom: 20px;
+    padding: 10px
+}
+
+.aside-rank h2 {
+    padding-left: 10px;
+    font-size: 16px;
+    line-height: 24px
+}
+
+.aside-evaluate-list {
+    margin-top: 10px
+}
+
+.aside-evaluate-list li {
+    overflow: hidden;
+    line-height: 24px
+}
+
+.aside-evaluate-list a {
+    display: block;
+    width: 230px;
+    height: 92px;
+    overflow: hidden;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 10px auto 0 auto;
+    position: relative;
+}
+.aside-evaluate-list a p:hover{
+    background: rgba(0,0,0,.6);
+}
+.aside-evaluate-list a p {
+    width: 100%;
+    height: 100%;
+    color: #FFFFFF;
+    background: rgba(0,0,0,.5);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    display: block;
+}
+
+.aside-evaluate-list p span {
+    width: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-height: 22px;
+    position: absolute;
+    bottom: 6px;
+    padding: 0 12px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.aside-rank-list {
+    margin-top: 10px
+}
+
+.aside-rank-list li {
+    overflow: hidden;
+    line-height: 24px
+}
+
+.aside-rank-list a {
+    position: relative;
+    display: block;
+    height: 64px;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.aside-rank-list a:hover {
+    background-color: #eee
+}
+
+.aside-rank-list img {
+    float: left;
+    margin-right: 20px
+}
+
+.aside-rank-list em {
+    display: block;
+    margin-top: 7px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+.aside-rank-list span {
+    color: #666;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    -ms-text-overflow: ellipsis;
+    height: 20px;
+    line-height: 26px;
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+.main .imgScale {
+    padding-bottom: 24px;
+    border-bottom: 1px solid #F4F4F4;
+}
+.main .details{
+    color: #808080;
+    display: -webkit-box;
+    display: -moz-box;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:2;
+    height: 40px;
+    line-height: 20px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.main h2 {
+    color: #303030;
+    font-size: 18px;
+    padding-top: 26px;
+    padding-bottom: 16px;
+    font-weight: bold;
+}
+.main h2:hover{
+    color: #ea6f5a;
+}
+.main .label-art {
+    margin-top: 0;
+}
+
+.main .imgs{
+    display: block;
+    overflow: hidden;
+    position: relative;
+    margin: 14px 0;
+    /*height: 260px;*/
+}
+.imgs .num{
+    display: inline-block;
+    font-size: 16px;
+    color: #FFFFFF;
+    position: absolute;
+    right: -1px;
+    top: 8px;
+    z-index: 999;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+.imgs .num label{
+    font-size: 14px;
+}
+.main .imgs:after{
+    content: '';
+    width: 0;
+    height: 0;
+    border-bottom: 56px solid transparent;
+    border-left: 56px solid transparent;
+    border-top: 56px solid #ffa200;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: 99;
+}
+
+
+.main .view-count {
+    margin-left: 30px;
+}
+
+.main p a label{
+    display: inline-block;
+    width: 6px;
+    height: 12px;
+    background-position: -363px -52px;
+    vertical-align: middle;
+    margin-left: 4px;
+    margin-top: -2px;
+}
+
+.time-art {
+    color: #909090;
+    font-size: 14px;
+}
+.time-art label {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: url('http://static.139ud.com/front/img/imgs.png') -130px -92px;
+    margin-right: 9px;
+    margin-bottom: 0;
+}
+
+.view-count {
+    font-size: 14px;
+    color: #909090;
+}
+.view-count label {
+    display: inline-block;
+    width: 17px;
+    height: 12px;
+    background: url('http://static.139ud.com/front/img/imgs.png') -93px -92px;
+    margin-right: 8px;
+    margin-bottom: 0;
+}
+.label-art{
+    margin-top: 16px;
+}
+.label-art a {
+    font-size: 14px;
+    color: #909090;
+    display: inline-block;
+    margin: 0 4px;
+}
+.label-art a:hover {
+    color: #ea6f5a;
+}
+.label-art .lableIcon{
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background: url('http://static.139ud.com/front/img/imgs.png') -93px -124px;
+    margin-bottom: 0;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+/**
+ * 适应手机屏幕
+ */
+@media screen and ( max-width : 767px) {
+    .breadcrumb {
+         margin-bottom: 0px;
+    }
+    .wrap .main {
+        box-shadow: 0px 0px 0px #d4d3d3;
+    }
+    .main .imgScale {
+        position: relative;
+    }
+    .main .imgs {
+        border-radius: 5px;
+    }
+    .main .data-detail{
+        display: none;
+    }
+    .main .title {
+        bottom: 64px;
+        position: absolute;
+    }
+    .main h2 {
+        color: #202020;
+        font-size: 17px;
+        padding-top: 0;
+        padding-bottom: 0;
+        font-weight: unset;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .main .details {
+        font-size: 13px;
+        height: 36px;
+        margin-top: 35px;
+    }
+}
